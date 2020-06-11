@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>问题不可能由导致这种问题的思维方式来解决</title>
+  <script src="https://cdn.bootcss.com/lodash.js/4.17.15/lodash.min.js"></script>
+</head>
+
+<body>
+  <button id="btn1">节流</button>
+  <button id=btn2>防抖</button>
+  <script type="text/javascript">
+    // btn1.onclick = throttle(clickHandle, 1000)
+    // btn2.onclick = debounce(clickHandle, 1000)
+    /*
+      函数节流: 
+        首先执行一次, 然后在一定的时间内才会执行第二次
+        在函数需要频繁触发的时候, 函数执行一次后, 只要大于设定的执行周期后, 才会执行下一次, 适合多次事件按照时间分配来触发
+        应用场景:
+          窗口的调用, 页面的滚动, DOM的元素的拖拽, 疯狂的抢购
+      函数防抖: 
+        无论多少次的调用, 只执行最后一次
+        在函数需要频繁触发的时候
+        应用场景:
+          搜索联想(keyup)
+          文本框的输入验证(oninput,onchange)
+      无论是节流还是防抖, 都返回一个函数
+    */
+    // // 节流
+    // function throttle(callback, time) {
+    //   let start = 0
+    //   return function (...args) {
+    //     console.log('throttle');
+    //     const currentTime = Date.now() // 当前的时间
+    //     // 判断是否满足条件
+    //     if (currentTime - start > time) {
+    //       // 更新初始时间
+    //       start = currentTime
+    //       callback.call(this, args)
+    //     }
+    //   }
+    // }
+    // // 防抖
+    // function debounce(callback, time) {
+    //   return function (...args) {
+    //     console.log('debounce');
+    //     // 清除定时器
+    //     if (callback.timer) {
+    //       clearTimeout(callback.timer)
+    //     }
+    //     callback.timer = setTimeout(() => {
+    //       // 删除保存的定时器
+    //       delete callback.timer
+    //       callback.call(this, args)
+    //     }, time);
+    //   }
+    // }
+
+    function clickHandle() {
+      console.log('我被点了');
+    }
+
+    btn1.onclick = _.throttle(clickHandle, 1000)
+    btn2.onclick = _.debounce(clickHandle, 1000)
+  </script>
+</body>
+
+</html>
