@@ -1,0 +1,23 @@
+
+
+参数可以用post
+
+{
+    
+}
+
+
+{
+    "status": 0, --> 本次请求登录是成功的, 你的用户名和密码都是正确的
+    "data": {
+        "user": {
+            "_id": "5e7ad38504ff850b2854f22d",
+            "username": "admin",
+            "create_time": 1585107845114,
+            "role": {
+                "menus": []
+            }
+        },
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlN2FkMzg1MDRmZjg1MGIyODU0ZjIyZCIsImlhdCI6MTU4NTI3Njg5MCwiZXhwIjoxNTg1ODgxNjkwfQ.r0p10sJPVpQXXGSKFoESjlawf07nwAnJPvdt8YKYd6c"
+    }
+}
